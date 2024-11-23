@@ -79,7 +79,9 @@ function renderGallery(images) {
     )
     .join('');
 
-  gallery.insertAdjacentHTML('beforeend', markup);
+    gallery.insertAdjacentHTML('beforeend', markup);
+    
+    console.log(gallery.innerHTML); 
 
   if (!lightbox) {
     lightbox = new SimpleLightbox('.gallery a', {
