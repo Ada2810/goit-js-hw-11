@@ -1,6 +1,4 @@
 import Notiflix from 'notiflix';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 import { fetchImages } from './api-service';
 
 const form = document.getElementById('search-form');
@@ -64,8 +62,8 @@ async function fetchAndRenderImages() {
 function renderGallery(images) {
   const markup = images
     .map(
-      ({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `
-        <a href="${largeImageURL}" class="photo-card">
+      ({ webformatURL, tags, likes, views, comments, downloads }) => `
+        <div class="photo-card">
           <img src="${webformatURL}" alt="${tags}" loading="lazy" />
           <div class="info">
             <p class="info-item"><b>Likes</b> ${likes}</p>
@@ -73,16 +71,10 @@ function renderGallery(images) {
             <p class="info-item"><b>Comments</b> ${comments}</p>
             <p class="info-item"><b>Downloads</b> ${downloads}</p>
           </div>
-        </a>
+        </div>
       `
     )
     .join('');
 
   gallery.insertAdjacentHTML('beforeend', markup);
-
-  const lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
-  lightbox.refresh();
 }
