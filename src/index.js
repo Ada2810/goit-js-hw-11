@@ -91,8 +91,8 @@ function renderGallery(images) {
       captionDelay: 250,
     });
   } else {
-    console.log('Refreshing SimpleLightbox');
     setTimeout(() => {
+      console.log('Refreshing SimpleLightbox');
       lightbox.refresh();
     }, 100);
   }

@@ -34,21 +34,19 @@ body {
 
 .photo-card {
     display: block;
-    position: relative;
     border: 1px solid #ccc;
     border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: white;
+    position: relative;
 }
 
 .photo-card img {
     display: block;
-    max-width: 100%;
+    width: 100%;
     height: auto;
     opacity: 1 !important;
     object-fit: cover;
-    transition: opacity 0.3s ease-in-out;
 }
 
 .info {
@@ -56,8 +54,8 @@ body {
     padding: 10px;
     background: rgba(0, 0, 0, 0.5);
     color: white;
-    text-align: center;
     font-size: 14px;
+    text-align: center;
 }
 
 .load-more {
