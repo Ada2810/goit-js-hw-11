@@ -33,38 +33,31 @@ body {
 }
 
 .photo-card {
+    display: block;
+    position: relative;
     border: 1px solid #ccc;
     border-radius: 4px;
     overflow: hidden;
-    position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 .photo-card img {
     display: block;
     max-width: 100%;
     height: auto;
+    opacity: 1 !important;
     object-fit: cover;
     transition: opacity 0.3s ease-in-out;
-    opacity: 1 !important;
 }
 
 .info {
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    padding: 10px;
     background: rgba(0, 0, 0, 0.5);
     color: white;
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-around;
+    text-align: center;
     font-size: 14px;
-}
-
-.info-item b {
-    display: block;
-    margin-bottom: 4px;
 }
 
 .load-more {
@@ -79,5 +72,5 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }

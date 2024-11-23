@@ -63,7 +63,7 @@ async function fetchAndRenderImages() {
 }
 
 function renderGallery(images) {
-  console.log('Rendering images:', images); 
+  console.log('Rendering images:', images);
 
   const markup = images
     .map(
@@ -82,13 +82,18 @@ function renderGallery(images) {
     .join('');
 
   gallery.insertAdjacentHTML('beforeend', markup);
-  console.log('Gallery HTML:', gallery.innerHTML); 
+  console.log('Gallery HTML after rendering:', gallery.innerHTML);
+
   if (!lightbox) {
+    console.log('Initializing SimpleLightbox');
     lightbox = new SimpleLightbox('.gallery a', {
       captionsData: 'alt',
       captionDelay: 250,
     });
   } else {
-    lightbox.refresh();
+    console.log('Refreshing SimpleLightbox');
+    setTimeout(() => {
+      lightbox.refresh();
+    }, 100);
   }
 }
