@@ -1,4 +1,6 @@
 import Notiflix from 'notiflix';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import { fetchImages } from './api-service';
 
 const form = document.getElementById('search-form');
@@ -8,6 +10,7 @@ const loadMoreButton = document.querySelector('.load-more');
 let currentPage = 1;
 let query = '';
 let totalHits = 0;
+let lightbox = null;
 
 form.addEventListener('submit', onSearch);
 loadMoreButton.addEventListener('click', onLoadMore);
@@ -62,13 +65,28 @@ async function fetchAndRenderImages() {
 function renderGallery(images) {
   const markup = images
     .map(
-      ({ webformatURL, tags }) => `
-        <div class="photo-card">
+      ({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `
+        <a href="${largeImageURL}" class="photo-card">
           <img src="${webformatURL}" alt="${tags}" loading="lazy" />
-        </div>
+          <div class="info">
+            <p class="info-item"><b>Likes</b> ${likes}</p>
+            <p class="info-item"><b>Views</b> ${views}</p>
+            <p class="info-item"><b>Comments</b> ${comments}</p>
+            <p class="info-item"><b>Downloads</b> ${downloads}</p>
+          </div>
+        </a>
       `
     )
     .join('');
 
   gallery.insertAdjacentHTML('beforeend', markup);
+
+  if (!lightbox) {
+    lightbox = new SimpleLightbox('.gallery a', {
+      captionsData: 'alt',
+      captionDelay: 250,
+    });
+  } else {
+    lightbox.refresh();
+  }
 }

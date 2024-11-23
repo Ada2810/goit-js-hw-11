@@ -7,16 +7,18 @@
     list-style: none;
 }
 
-.photo-card img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    transition: opacity 0.3s ease-in-out;
+.photo-card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.photo-card img[loading="lazy"] {
-    opacity: 1;
+.photo-card img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .info {
@@ -29,4 +31,19 @@
 .info-item b {
     display: block;
     margin-bottom: 4px;
+}
+
+.load-more {
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }
