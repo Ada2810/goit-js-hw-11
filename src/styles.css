@@ -41,9 +41,14 @@ body {
 
 .photo-card img {
     display: block;
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    object-fit: cover;
     transition: opacity 0.3s ease-in-out;
+}
+
+.photo-card img[loading="lazy"] {
+    opacity: 1;
 }
 
 .info {
