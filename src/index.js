@@ -84,4 +84,3 @@ function renderGallery(images) {
   });
   lightbox.refresh();
 }
-
